@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: new-user-service-ingress
+spec:
+  rules:
+  - host: new-user-service.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: new-user-service
+            port:
+              number: 80
